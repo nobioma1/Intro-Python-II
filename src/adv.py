@@ -51,3 +51,14 @@ player = Player('Lupita', 'outside')
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+print(
+    """
+        **Welcome To Adventure Room Game**
+            Possible Directions To Go:
+                n - North
+                s - South
+                e - East
+                w - West 
+    """
+)
