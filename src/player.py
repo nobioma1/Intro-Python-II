@@ -8,3 +8,8 @@ class Player:
   def __str__(self):
     return f"Name: {self.name} \nCurrent Room: {self.current_room}"
 
+  def get_current_room(self):
+    return self.current_room
+  
+  def set_current_room(self, room):
+    self.current_room = room
