@@ -62,3 +62,21 @@ print(
                 w - West 
     """
 )
+
+while True:
+    current_room = player.get_current_room()
+    print(f"Current Room:\n{room[current_room]}")
+    user_input = input("\nIn what direction do you want to go now? \n > ").lower()
+    if user_input == "n":
+        continue
+    if user_input == "s":
+        continue
+    if user_input == "e":
+        continue
+    if user_input == "w":
+        continue
+    if user_input == "q":
+        print("Bye! See you Later")
+        break
+    else:
+        print(f"-->Movement {user_input} is not allowed<--\n")
