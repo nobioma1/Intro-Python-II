@@ -80,7 +80,10 @@ while True:
         player.set_player_room(next_room)
     elif user_input == "w":
         next_room = player_current_room.w_to
-        player.set_player_room(next_room)
+    elif 'drop' in user_input:
+        print(player.drop_item(user_input))
+    elif 'take' in user_input:
+        print(player.take_item(user_input))
     elif user_input == "q":
         print("Bye! See you Later")
         break
