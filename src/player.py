@@ -31,3 +31,9 @@ class Player:
             for index, item in enumerate(self.inventory):
                 inventories += f" {index + 1}. {item}\n"
         return inventories
+
+    def add_inventory(self, item):
+        self.inventory.append(item)
+
+    def remove_inventory_item(self, item_index):
+        self.inventory.pop(item_index)
