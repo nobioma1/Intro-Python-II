@@ -22,3 +22,12 @@ class Player:
             self.set_player_room(room)
     else:
       print("-->Sorry, you cannot move in this direction in your current room<--")
+
+    def view_inventory(self):
+        inventories = "Your Inventory:\n"
+        if len(self.inventory) == 0:
+            inventories += " There is no item in your inventory"
+        else:
+            for index, item in enumerate(self.inventory):
+                inventories += f" {index + 1}. {item}\n"
+        return inventories
