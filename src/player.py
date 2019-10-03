@@ -37,3 +37,16 @@ class Player:
 
     def remove_inventory_item(self, item_index):
         self.inventory.pop(item_index)
+
+    def drop_item(self, input):
+        input_list = input.split(" ")
+        if len(input_list) == 2 and len(input_list[1]) > 1:
+            user_item = input_list[1]
+            for index, item in enumerate(self.inventory):
+                if item.get_name().lower() == user_item.lower():
+                    self.remove_inventory_item(index)
+                    self.current_room.add_room_item(item)
+                    return item.on_drop()
+            return f"Check your Inventory, you can drop what you don't have."
+        else:
+            return "Try again, What do you want to drop?"
