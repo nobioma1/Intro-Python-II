@@ -11,5 +11,8 @@ class Player:
   def get_current_room(self):
     return self.current_room
   
-  def set_current_room(self, room):
-    self.current_room = room
+  def set_player_room(self, room):
+    if room != None:
+      self.current_room = room
+    else:
+      print("-->Sorry, you cannot move in this direction in your current room<--")
