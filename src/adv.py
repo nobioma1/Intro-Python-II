@@ -64,18 +64,24 @@ print(
 )
 
 while True:
-    current_room = player.get_current_room()
-    print(f"Current Room:\n{room[current_room]}")
+    player_current_room = player.get_current_room()
+    print(f"\nCurrent Room:\n{player_current_room}")
+
     user_input = input("\nIn what direction do you want to go now? \n > ").lower()
+
     if user_input == "n":
-        continue
-    if user_input == "s":
-        continue
-    if user_input == "e":
-        continue
-    if user_input == "w":
-        continue
-    if user_input == "q":
+        next_room = player_current_room.n_to
+        player.set_player_room(next_room)
+    elif user_input == "s":
+        next_room = player_current_room.s_to
+        player.set_player_room(next_room)
+    elif user_input == "e":
+        next_room = player_current_room.e_to
+        player.set_player_room(next_room)
+    elif user_input == "w":
+        next_room = player_current_room.w_to
+        player.set_player_room(next_room)
+    elif user_input == "q":
         print("Bye! See you Later")
         break
     else:
