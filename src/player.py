@@ -3,25 +3,25 @@
 
 
 class Player:
-  def __init__(self, name, current_room):
-    self.name = name
-    self.current_room = current_room
+    def __init__(self, name, current_room):
+        self.name = name
+        self.current_room = current_room
         self.inventory = []
-  
-  def __str__(self):
+
+    def __str__(self):
         return f"\tName: {self.name} \tCurrent Room: {self.current_room}"
 
-  def get_current_room(self):
-    return self.current_room
-  
-  def set_player_room(self, room):
-      self.current_room = room
+    def get_current_room(self):
+        return self.current_room
+
+    def set_player_room(self, room):
+        self.current_room = room
 
     def move_player(self, room):
         if room != None:
             self.set_player_room(room)
-    else:
-      print("-->Sorry, you cannot move in this direction in your current room<--")
+        else:
+            print("-->Sorry, you cannot move in this direction in your current room<--")
 
     def view_inventory(self):
         inventories = "Your Inventory:\n"
@@ -50,3 +50,17 @@ class Player:
             return f"Check your Inventory, you can drop what you don't have."
         else:
             return "Try again, What do you want to drop?"
+
+    def take_item(self, input):
+        input_list = input.split(" ")
+        if len(input_list) == 2 and len(input_list[1]) > 1:
+            user_item = input_list[1]
+            room_items = self.current_room.room_items
+            for index, item in enumerate(room_items):
+                if item.get_name().lower() == user_item.lower():
+                    self.current_room.remove_room_item(index)
+                    self.add_inventory(item)
+                    return item.on_take()
+            return f"Look around, you can't find '{user_item}' in '{self.current_room.get_name()}'"
+        else:
+            return "Try again, What do you want to take?"
