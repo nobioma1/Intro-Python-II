@@ -12,7 +12,17 @@ class Room:
     self.e_to = None
     self.w_to = None 
 
-  def get_room(self):
+    def __str__(self):
+        return f" Room Name: {self.name}\n Room Description: {self.description}"
+
+    def view_room_items(self):
+        items = "Room Items:\n"
+        if len(self.room_items) == 0:
+            items += " There is no item in this room"
+        else:
+            for index, item in enumerate(self.room_items):
+                items += f" {index + 1}. {item}\n"
+        return items
     return self.name
   
   def __str__(self):
